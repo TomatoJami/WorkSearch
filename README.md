@@ -76,6 +76,7 @@ git clone https://github.com/MihhailKakourov/Task-Management-Application.git
     Просморт, редактирование, удаление своего аккаунта
     Просмотр всех пользователей
     Просмотр вакансий (по разным критериям)
+    Добавление своего резюме
     ```
 - Administrator
     ```
