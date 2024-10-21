@@ -38,7 +38,7 @@
 
 1. Клонируйте репозиторий
 ```
-git clone https://github.com/MihhailKakourov/Task-Management-Application.git
+git clone https://github.com/TomatoJami/WorkSearch.git
 ```
 2. Откройте папку с гитхаба в Visual Studio Code
    
