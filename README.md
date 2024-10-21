@@ -41,14 +41,20 @@
 git clone https://github.com/MihhailKakourov/Task-Management-Application.git
 ```
 2. Откройте папку с гитхаба в Visual Studio Code
+   
 3. Откройте XAMPP и запустите:
+   
    - apache
    - mysql
+     
 4. Откройте mysql и создайте базу данных 'worksearch'
+   
 5. Пропишите в консоль проекта в Visual Studio Code:
+   
    - npm i (установка всех зависимостей)
    - node config/createDB.js (создания базы данных)
    - node index.js (запуск сервера)
+     
 6. В браузере напишите: localhost:3000 (Это сервер проекта)
 
 ## Использованные технологии
