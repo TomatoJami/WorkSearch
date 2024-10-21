@@ -85,3 +85,4 @@ git clone https://github.com/MihhailKakourov/Task-Management-Application.git
 - @Brotxer - Arseni Sergejev
 
 ## ERD диаграмма
+![ERD](https://github.com/TomatoJami/WorkSearch/ERD.png)
