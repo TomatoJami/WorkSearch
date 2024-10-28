@@ -16,6 +16,9 @@ app.get('/', (req, res) => {
 
 require('../WorkSearch/routes/userRoutes')(app);
 require('../WorkSearch/routes/companyRoutes')(app);
+require('../WorkSearch/routes/officeRoutes')(app);
+require('../WorkSearch/routes/vacancyRoutes')(app);
+require('../WorkSearch/routes/resumeRoutes')(app);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

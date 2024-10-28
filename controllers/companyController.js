@@ -1,13 +1,10 @@
-const { User, Role } = require('../models');
+const { Company } = require('../models');
 const generateCRUDControllers = require('./generateCRUDcontrollers');
-const config = require('../config/auth.js');
-var jwt = require('jsonwebtoken');
-const bcrypt = require("bcryptjs");
 
-const userCRUDControllers = generateCRUDControllers(User);
+const companyCRUDControllers = generateCRUDControllers(Company);
 
-const userController = {
-    ...userCRUDControllers
+const companyController = {
+    ...companyCRUDControllers
 };
 
-module.exports = userController;
+module.exports = companyController;

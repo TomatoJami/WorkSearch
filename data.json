@@ -1,0 +1,76 @@
+{
+    "tables": {
+        "companies": {
+            "data": [
+            {
+            "id": 1,
+            "name": "Компания А",
+            "industry": "IT",
+            "description": "Разработка программного обеспечения"
+            },
+            {
+            "id": 2,
+            "name": "Компания Б",
+            "industry": "Финансы",
+            "description": "Финансовые услуги"
+            }
+        ]
+        },
+        "offices": {
+            "data": [
+            {
+            "id": 1,
+            "companyId": 1,
+            "name": "Офис в Москве",
+            "location": "Москва, ул. Ленина, 1"
+            },
+            {
+            "id": 2,
+            "companyId": 2,
+            "name": "Офис в Санкт-Петербурге",
+            "location": "Санкт-Петербург, Невский пр., 5"
+            }
+        ]
+        },
+        "professionTypes": {
+            "data": [
+                {
+                "id": 1,
+                "profession": "Программист"
+                },
+                {
+                "id": 2,
+                "profession": "Дизайнер"
+                }
+            ]
+        },
+        "resumes": {
+            "data": [
+                {
+                "id": 1,
+                "userId": 1,
+                "vacancyId": 1,
+                "CV": "Содержимое резюме...",
+                "createdAt": "2024-10-01T12:00:00Z",
+                "updatedAt": "2024-10-02T12:00:00Z"
+                }
+            ]
+        },
+        "vacancies": {
+            "data": [
+                {
+                "id": 1,
+                "officeId": 1,
+                "profession_id": 1,
+                "yearsRequiredExpirience": 2,
+                "requiredSkills": ["JavaScript", "React"],
+                "salary": 100000,
+                "createdAt": "2024-10-01T12:00:00Z",
+                "updatedAt": "2024-10-02T12:00:00Z",
+                "professionId": 1
+                }
+            ]
+        }
+    }
+}
+  
