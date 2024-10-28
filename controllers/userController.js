@@ -2,6 +2,7 @@ const { User, Role } = require('../models');
 const generateCRUDControllers = require('./generateCRUDcontrollers');
 const config = require('../config/auth.js');
 var jwt = require('jsonwebtoken');
+const bcrypt = require("bcryptjs");
 
 const userCRUDControllers = generateCRUDControllers(User);
 
@@ -9,28 +10,40 @@ const userController = {
     ...userCRUDControllers,
     signin: async (req, res) => {
         try {
-            const { username, password } = req.body;
-            const user = User.findOne({
+            const username = req.body.username;
+            const user = await User.findOne({
                 where: {
-                    username: username,
-                    password: password
+                    username: username
                 }
-            })
+            });
 
+            const passwordIsValid = bcrypt.compareSync(
+                req.body.password,
+                user.password
+            );
+    
             if (!user) {
                 return res.status(404).send({ message: 'User not found' });
-            } else {
-                const token = jwt.sign(
-                    { id: user.id },
-                    config.secret,
-                    { expiresIn: 3600 } // 1 час
-                )
-    
-                res.json({ message: 'Aunthentication successful', token })
             }
 
+            if (!passwordIsValid) {
+                return res.status(401).send({
+                    accessToken: null,
+                    message: "Invalid Password!"
+                })
+            }
+
+            const token = jwt.sign(
+                { id: user.id },
+                config.secret,
+                { expiresIn: 3600 } // 1 час
+            );
+    
+                res.json({ message: 'Authentication successful', token });
+            
+    
         } catch (error) {
-            res.status(500).json({message: error.message})
+            res.status(500).json({ message: error.message });
         }
     },
 
@@ -38,8 +51,11 @@ const userController = {
         try {
             const user = await User.create({
                 username: req.body.username,
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
                 email: req.body.email,
                 password: req.body.password
+
             });
 
             if (req.body.roles) {

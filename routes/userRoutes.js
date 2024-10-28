@@ -7,13 +7,15 @@ module.exports = app => {
 
     router.post('/signin', users.signin)
 
-    router.get('/', users.findAll, authJwt.verifyToken, authJwt.checkUserId, authJwt.isAdministrator)
+    router.use(authJwt.verifyToken);
 
-    router.get('/:id', users.findById)
+    router.get('/', [authJwt.verifyToken, authJwt.isAdministrator], users.findAll)
 
-    router.put('/:id', users.update)
+    router.get('/:id', [authJwt.verifyToken, authJwt.checkUserId], users.findById)
 
-    router.delete('/:id', users.delete)
+    router.put('/:id', [authJwt.verifyToken, authJwt.checkUserId], users.update)
+
+    router.delete('/:id', [authJwt.verifyToken, authJwt.checkUserId], users.delete)
 
     app.use('/users', router)
 }

@@ -15,6 +15,7 @@ app.get('/', (req, res) => {
 })
 
 require('../WorkSearch/routes/userRoutes')(app);
+require('../WorkSearch/routes/companyRoutes')(app);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
