@@ -1,17 +1,19 @@
 const fs = require('fs');
 const sequelize = require('../config/database');
-const { Company, Office, ProfessionType, Resume, Vacancy } = require('../models'); 
+const { Company, Office, ProfessionType, Resume, Vacancy } = require('../models');
 
 async function insertData() {
     try {
         const jsonData = fs.readFileSync('data.json', 'utf8');
-        const data = JSON.parse(jsonData);
+        const data = JSON.parse(jsonData).tables;
 
-        const companies = data.companies;
-        const offices = data.offices;
-        const professionTypes = data.professionTypes;
-        const resumes = data.resumes;
-        const vacancies = data.vacancies;
+        console.log("Parsed Data:", data);  
+
+        const companies = data.companies.data;
+        const offices = data.offices.data;
+        const professionTypes = data.professionTypes.data;
+        const resumes = data.resumes.data;
+        const vacancies = data.vacancies.data;
 
         for (const company of companies) {
             await Company.create(company);
@@ -33,9 +35,9 @@ async function insertData() {
             await Vacancy.create(vacancy);
         }
 
-        console.log('Данные успешно вставлены в базу данных.');
+        console.log("Data successfully inserted into database.");
     } catch (error) {
-        console.error('Ошибка при вставке данных:', error);
+        console.error("Error parsing or inserting data:", error);
     }
 }
 
