@@ -4,15 +4,15 @@
             "data": [
             {
             "id": 1,
-            "name": "Компания А",
+            "name": "Elisa",
             "industry": "IT",
-            "description": "Разработка программного обеспечения"
+            "description": "mobile operator"
             },
             {
             "id": 2,
-            "name": "Компания Б",
-            "industry": "Финансы",
-            "description": "Финансовые услуги"
+            "name": "medvedevbarbershop",
+            "industry": "services",
+            "description": "hairdresser salon"
             }
         ]
         },
@@ -21,14 +21,14 @@
             {
             "id": 1,
             "companyId": 1,
-            "name": "Офис в Москве",
-            "location": "Москва, ул. Ленина, 1"
+            "name": "office in Narva",
+            "location": "kerese 35"
             },
             {
             "id": 2,
             "companyId": 2,
-            "name": "Офис в Санкт-Петербурге",
-            "location": "Санкт-Петербург, Невский пр., 5"
+            "name": "office in Tallinn",
+            "location": "Laagna tee 21"
             }
         ]
         },
@@ -36,11 +36,11 @@
             "data": [
                 {
                 "id": 1,
-                "profession": "Программист"
+                "profession": "software developer"
                 },
                 {
                 "id": 2,
-                "profession": "Дизайнер"
+                "profession": "hairdresser"
                 }
             ]
         },
@@ -50,7 +50,7 @@
                 "id": 1,
                 "userId": 1,
                 "vacancyId": 1,
-                "CV": "Содержимое резюме...",
+                "CV": "Contents of the resume...",
                 "createdAt": "2024-10-01T12:00:00Z",
                 "updatedAt": "2024-10-02T12:00:00Z"
                 }
@@ -73,4 +73,6 @@
         }
     }
 }
+  
+
   
