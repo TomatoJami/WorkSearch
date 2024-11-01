@@ -92,4 +92,4 @@ git clone https://github.com/TomatoJami/WorkSearch.git
 - @Brotxer - Arseni Sergejev
 
 ## ERD диаграмма
-![ERD](https://github.com/TomatoJami/WorkSearch/blob/main/ERD.png)
+![ERD](https://github.com/TomatoJami/WorkSearch/blob/master/ERD.png)
