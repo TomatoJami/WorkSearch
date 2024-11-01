@@ -8,15 +8,13 @@ const resumeController = {
     addResume: async (req, res) => {
         try {
             const resume = await Resume.create({
-                username: req.body.username,
-                firstname: req.body.firstname,
-                lastname: req.body.lastname,
-                email: req.body.email,
-                password: req.body.password
-            })
-
-            res.send('User added successfully')
-
+                userId: req.userId,
+                vacancyId: req.body.vacancyId,
+                CV: req.body.CV,
+            });
+    
+            res.send('Resume added successfully');
+    
         } catch (err) {
             res.status(500).send({ message: err.message });
         }

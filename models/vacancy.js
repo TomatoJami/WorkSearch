@@ -8,6 +8,20 @@ const Vacancy = db.define('Vacancy', {
         primaryKey: true
     },
 
+    name: {
+        type: Sequelize.STRING(100),
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: 'Name is required'
+            },
+            len: {
+                args: [2, 1000],
+                msg: 'Name must be between 2 and 100'
+            }
+        }
+    },
+
     officeId: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -20,7 +34,7 @@ const Vacancy = db.define('Vacancy', {
         }
     },
 
-    profession_id: {
+    professionId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
@@ -41,10 +55,16 @@ const Vacancy = db.define('Vacancy', {
     },
 
     requiredSkills: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING(200),
         allowNull: false,
         validate: {
-            isInt: true,
+            notEmpty: {
+                msg: 'Required skills is required'
+            },
+            len: {
+                args: [2, 100],
+                msg: 'Required skills must be between 2 and 200'
+            }
         }
     },
 

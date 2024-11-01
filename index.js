@@ -1,5 +1,7 @@
 const express = require('express')
 const cors = require('cors')
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 const app = express()
 
@@ -10,9 +12,11 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 
-app.get('/', (req, res) => {
+app.get('', (req, res) => {
     res.json({ message: 'Welcome to WorkSearch RESTful API' })
 })
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 require('../WorkSearch/routes/userRoutes')(app);
 require('../WorkSearch/routes/companyRoutes')(app);

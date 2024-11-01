@@ -3,15 +3,23 @@ const router = require('express').Router()
 const authJwt = require("../middleware/authJwt")
 
 module.exports = app => {
+
+    /**
+     * @swagger
+     * tags:
+     *   name: companies
+     *   description: Office management endpoints
+     */
+
     router.use(authJwt.verifyToken);
 
-    router.get('/', [authJwt.verifyToken], companies.findAll)
+    router.get('/companies/', [authJwt.verifyToken], companies.findAll)
 
-    router.get('/:id', [authJwt.verifyToken], companies.findById)
+    router.get('/companies/:id', [authJwt.verifyToken], companies.findById)
 
-    router.put('/:id', [authJwt.verifyToken, authJwt.isAdministrator], companies.update)
+    router.put('/companies/:id', [authJwt.verifyToken, authJwt.isAdministrator], companies.update)
 
-    router.delete('/:id', [authJwt.verifyToken, authJwt.isAdministrator], companies.delete)
+    router.delete('/companies/:id', [authJwt.verifyToken, authJwt.isAdministrator], companies.delete)
 
-    app.use('/companies', router)
+    app.use('', router)
 }

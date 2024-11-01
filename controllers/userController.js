@@ -77,6 +77,25 @@ const userController = {
         } catch (err) {
             res.status(500).send({ message: err.message });
         }
+    },
+
+    findByUsername: async(req, res) => {
+        const username = req.params.username
+        try {
+            const user = await User.findOne({
+                where: {
+                    username: username
+                }
+            });
+
+            if (username.length === 0) {
+                return res.status(404).json({ message: 'No users found!' });
+            }
+
+            res.status(200).json(user);
+        } catch (err) {
+            res.status(500).send({ message: err.message });
+        }
     }
 };
 

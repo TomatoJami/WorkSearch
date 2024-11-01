@@ -3,19 +3,29 @@ const router = require('express').Router()
 const authJwt = require("../middleware/authJwt")
 
 module.exports = app => {
-    router.post('/signup', users.signup)
 
-    router.post('/signin', users.signin)
+    /**
+     * @swagger
+     * tags:
+     *   name: users
+     *   description: Office management endpoints
+     */
 
-    router.use(authJwt.verifyToken);
+    router.post('/users/signup', users.signup)
 
-    router.get('/', [authJwt.verifyToken, authJwt.isAdministrator], users.findAll)
+    router.post('/users/signin', users.signin)
 
-    router.get('/:id', [authJwt.verifyToken, authJwt.checkUserId], users.findById)
+    router.use(authJwt.verifyToken)
 
-    router.put('/:id', [authJwt.verifyToken, authJwt.checkUserId], users.update)
+    router.get('/users/username/:username', [authJwt.verifyToken, authJwt.checkUserId], users.findByUsername)
 
-    router.delete('/:id', [authJwt.verifyToken, authJwt.checkUserId], users.delete)
+    router.get('/users/', [authJwt.verifyToken, authJwt.isAdministrator], users.findAll)
 
-    app.use('/users', router)
+    router.get('/users/:id', [authJwt.verifyToken, authJwt.checkUserId], users.findById)
+
+    router.put('/users/:id', [authJwt.verifyToken, authJwt.checkUserId], users.update)
+
+    router.delete('/users/:id', [authJwt.verifyToken, authJwt.checkUserId], users.delete)
+
+    app.use('', router)
 }

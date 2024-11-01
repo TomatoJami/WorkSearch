@@ -3,17 +3,25 @@ const router = require('express').Router()
 const authJwt = require("../middleware/authJwt")
 
 module.exports = app => {
+
+    /**
+     * @swagger
+     * tags:
+     *   name: resumes
+     *   description: Office management endpoints
+     */
+
     router.use(authJwt.verifyToken);
 
-    router.post('/addResume', [authJwt.verifyToken], resumes.addResume)
+    router.post('/resumes/addResume', [authJwt.verifyToken], resumes.addResume)
 
-    router.get('/', [authJwt.verifyToken], resumes.findAll)
+    router.get('/resumes/', [authJwt.verifyToken, authJwt.isAdministrator], resumes.findAll)
 
-    router.get('/:id', [authJwt.verifyToken], resumes.findById)
+    router.get('/resumes/:id', [authJwt.verifyToken, authJwt.checkUserId], resumes.findById)
 
-    router.put('/:id', [authJwt.verifyToken, authJwt.isAdministrator], resumes.update)
+    router.put('/resumes/:id', [authJwt.verifyToken, authJwt.isAdministrator], resumes.update)
 
-    router.delete('/:id', [authJwt.verifyToken, authJwt.isAdministrator], resumes.delete)
+    router.delete('/resumes/:id', [authJwt.verifyToken, authJwt.isAdministrator], resumes.delete)
 
-    app.use('/resumes', router)
+    app.use('', router)
 }

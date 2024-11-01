@@ -27,12 +27,12 @@ async function insertData() {
             await ProfessionType.create(profession);
         }
 
-        for (const resume of resumes) {
-            await Resume.create(resume);
-        }
-
         for (const vacancy of vacancies) {
             await Vacancy.create(vacancy);
+        }
+
+        for (const resume of resumes) {
+            await Resume.create(resume);
         }
 
         console.log("Data successfully inserted into database.");

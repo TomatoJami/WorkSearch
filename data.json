@@ -22,13 +22,13 @@
             "id": 1,
             "companyId": 1,
             "name": "office in Narva",
-            "location": "kerese 35"
+            "location": "kerese 35, Narva"
             },
             {
             "id": 2,
             "companyId": 2,
             "name": "office in Tallinn",
-            "location": "Laagna tee 21"
+            "location": "Laagna tee 21, Tallinn"
             }
         ]
         },
@@ -50,7 +50,7 @@
                 "id": 1,
                 "userId": 1,
                 "vacancyId": 1,
-                "CV": "Contents of the resume...",
+                "CV": "I am a junior programmer with 3 years of experience, I work well in a team and am ready to constantly develop.",
                 "createdAt": "2024-10-01T12:00:00Z",
                 "updatedAt": "2024-10-02T12:00:00Z"
                 }
@@ -60,14 +60,25 @@
             "data": [
                 {
                 "id": 1,
+                "name": "back end programmer",
                 "officeId": 1,
-                "profession_id": 1,
+                "professionId": 1,
                 "yearsRequiredExpirience": 2,
-                "requiredSkills": ["JavaScript", "React"],
-                "salary": 100000,
+                "requiredSkills": "JavaScript, React",
+                "salary": 2000,
                 "createdAt": "2024-10-01T12:00:00Z",
-                "updatedAt": "2024-10-02T12:00:00Z",
-                "professionId": 1
+                "updatedAt": "2024-10-02T12:00:00Z"
+                },
+                {
+                "id": 2,
+                "name": "hairdresser",
+                "officeId": 2,
+                "professionId": 2,
+                "yearsRequiredExpirience": 1,
+                "requiredSkills": "Ability to do popular hairstyles",
+                "salary": 1500,
+                "createdAt": "2024-10-01T12:00:00Z",
+                "updatedAt": "2024-10-02T12:00:00Z"
                 }
             ]
         }
