@@ -43,27 +43,32 @@ git clone https://github.com/TomatoJami/WorkSearch.git
 2. Откройте папку с гитхаба в Visual Studio Code
 
 3. В корневом элементе добавьте файл .env, в котором напишите:
+   
 DB_NAME = 'worksearch'
+
 DB_USER = //Ваши данные
+
 DB_PASS = //Ваши данные
+
 DB_HOST = //Ваши данные
+
 DB_DIALECT = 'mysql'
    
-4. Откройте XAMPP и запустите:
+5. Откройте XAMPP и запустите:
    
    - apache
    - mysql
      
-5. Откройте mysql и создайте базу данных 'worksearch'
+6. Откройте mysql и создайте базу данных 'worksearch'
    
-6. Пропишите в консоль проекта в Visual Studio Code:
+7. Пропишите в консоль проекта в Visual Studio Code:
    
    - npm i (установка всех зависимостей)
    - node config/createDB.js (создания базы данных)
    - node config/parse.js (вставка данных в базу данных)
    - node index.js (запуск сервера)
      
-7. В браузере напишите: localhost:3000 (Это сервер проекта)
+8. В браузере напишите: localhost:3000 (Это сервер проекта)
 
 ## Использованные технологии
 
