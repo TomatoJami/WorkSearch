@@ -1,5 +1,41 @@
 {
     "tables": {
+        "users": {
+            "data": [
+                {
+                "id": 1,
+                "username": "admin",
+                "firstname": "Eduard",
+                "lastname": "Toomemets",
+                "email": "admin@example.com",
+                "password": "admin_123",
+                "roleId": 1
+                },
+                {
+                "id": 2,
+                "username": "user",
+                "firstname": "Arseni",
+                "lastname": "Sergejev",
+                "email": "user@example.com",
+                "password": "user_123",
+                "roleId": 2
+                }
+            ]
+        },
+        
+        "roles": {
+            "data": [
+                {
+                "id": 1,
+                "name": "administrator"
+                },
+                {
+                "id": 2,
+                "name": "user"
+                }
+            ]
+        },
+
         "companies": {
             "data": [
             {

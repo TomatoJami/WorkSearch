@@ -67,7 +67,8 @@ const User = db.define('User', {
     password: {
         type: Sequelize.STRING(255),
         allowNull: false
-    }
+    },
+    
 }, {
     timestamps: false,
     tableName: 'users',
